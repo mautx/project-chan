@@ -17,7 +17,16 @@ import Typography from "@mui/material/Typography";
 import { motion } from 'framer-motion';
 
 import * as React from "react";
-import {Facebook, Twitter, WhatsApp} from "@mui/icons-material";
+import {
+  Category,
+  Collections,
+  ContactPhone,
+  Facebook,
+  Home,
+  HomeRepairService,
+  Twitter,
+  WhatsApp
+} from "@mui/icons-material";
 
 function MenuResponsive() {
   const [state, setState] = useState(false);
@@ -49,8 +58,12 @@ function MenuResponsive() {
           (text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <ListItemIcon sx={{color:"#EEEEEF"}}>
+                  {index === 0 ? <Home /> : undefined}
+                  {index === 1 ? <Category /> : undefined}
+                  {index === 2 ? <HomeRepairService /> : undefined}
+                  {index === 3 ? <Collections /> : undefined}
+                  {index === 4 ? <ContactPhone /> : undefined}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -77,7 +90,12 @@ function MenuResponsive() {
             >
               <MenuIcon />
             </IconButton>
-            <Drawer anchor="Left" open={state} onClose={toggleDrawer(false)}>
+            <Drawer anchor="Left" open={state} onClose={toggleDrawer(false)}   PaperProps={{
+              sx: {
+                backgroundColor: '#2E364F',
+                color: '#EEEEEF'
+              }
+            }}>
               {list()}
             </Drawer>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
