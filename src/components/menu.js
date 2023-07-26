@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
+
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -54,7 +54,7 @@ function MenuResponsive() {
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon variant={"MainList"}>
-                  {index === 0 ? <Home /> : undefined}
+                  {index === 0 ? <Home  /> : undefined}
                   {index === 1 ? <Category /> : undefined}
                   {index === 2 ? <HomeRepairService /> : undefined}
                   {index === 3 ? <Collections /> : undefined}
@@ -71,7 +71,7 @@ function MenuResponsive() {
   );
 
   return (
-    <>
+
       <Box sx={{ flexGrow: 1}}>
         <AppBar position="static" variant={"MainNav"} >
           <Toolbar>
@@ -105,7 +105,7 @@ function MenuResponsive() {
                 size="large"
                 edge="start"
                 onClick={() => redirectToExternalPage("https://www.google.com")}
-variant={"MainIcon"}
+                variant={"MainIcon"}
                 aria-label="menu"
               >
                 <Twitter />
@@ -134,7 +134,7 @@ variant={"MainIcon"}
           </Toolbar>
         </AppBar>
       </Box>
-    </>
+
   );
 }
 
