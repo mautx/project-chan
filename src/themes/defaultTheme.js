@@ -1,36 +1,49 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#2E364F',
-            light:'#C3d'
-
+  components: {
+    MuiAppBar: {
+      variants: [
+        {
+          props: {
+            variant: "MainNav",
+          },
+          style: {
+            backgroundColor: "#2E364F",
+          },
         },
-        secondary: {
-            light: '#0066ff',
-            main: '#0044ff',
-            // dark: will be calculated from palette.secondary.main,
-            contrastText: '#ffcc00',
-        },
-        // Provide every color token (light, main, dark, and contrastText) when using
-        // custom colors for props in Material UI's components.
-        // Then you will be able to use it like this: `<Button color="custom">`
-        // (For TypeScript, you need to add module augmentation for the `custom` value)
-        custom: {
-            light: '#ffa726',
-            main: '#f57c00',
-            dark: '#ef6c00',
-            contrastText: 'rgba(0, 0, 0, 0.87)',
-        },
-        // Used by `getContrastText()` to maximize the contrast between
-        // the background and the text.
-        contrastThreshold: 3,
-        // Used by the functions below to shift a color's luminance by approximately
-        // two indexes within its tonal palette.
-        // E.g., shift from Red 500 to Red 300 or Red 700.
-        tonalOffset: 0.2,
+      ],
     },
+
+    MuiIconButton: {
+      variants: [
+        {
+          props: {
+            variant: "MainIcon",
+          },
+          style: {
+            color: "#009357",
+            mr: 2,
+          },
+        },
+      ],
+    },
+    MuiList: {
+      variants: [
+        {
+          props: {
+            variant: "MainListBack",
+          },
+          style: {
+            color: "#009357",
+            backgroundColor:"blue",
+            height:"100vh"
+          },
+        },
+      ],
+    },
+
+  },
 });
 
 export default theme;
