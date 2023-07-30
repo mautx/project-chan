@@ -28,6 +28,7 @@ import {
 
 
 
+
 function MenuResponsive() {
   const [state, setState] = useState(false);
 
@@ -47,94 +48,75 @@ function MenuResponsive() {
   };
 
   const list = () => (
-
-      <List variant={"MainListBack"}>
-        {["Inicio", "Productos", "Servicios", "Galería", "Contacto"].map(
-          (text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon variant={"MainList"}>
-                  {index === 0 ? <Home  /> : undefined}
-                  {index === 1 ? <Category /> : undefined}
-                  {index === 2 ? <HomeRepairService /> : undefined}
-                  {index === 3 ? <Collections /> : undefined}
-                  {index === 4 ? <ContactPhone /> : undefined}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          )
-        )}
-      </List>
-
-
+    <List variant={"MainList"}>
+      {["Inicio", "Productos", "Servicios", "Galería", "Contacto"].map(
+        (text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon variant={"MainIcon"}>
+                {index === 0 ? <Home color={"secondary"} /> : undefined}
+                {index === 1 ? <Category color={"secondary"} /> : undefined}
+                {index === 2 ? <HomeRepairService color={"secondary"} /> : undefined}
+                {index === 3 ? <Collections color={"secondary"} /> : undefined}
+                {index === 4 ? <ContactPhone color={"secondary"} /> : undefined}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        )
+      )}
+    </List>
   );
 
   return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" variant={"MainNav"}>
+        <Toolbar>
+          <IconButton onClick={toggleDrawer(true)} variant={"MainIcon"}>
+            <MenuIcon />
+          </IconButton>
+          <Drawer
+            anchor="Left"
+            open={state}
+            onClose={toggleDrawer(false)}
+            variant={"MainDraw"}
+          >
+            {list()}
+          </Drawer>
 
-      <Box sx={{ flexGrow: 1}}>
-        <AppBar position="static" variant={"MainNav"} >
-          <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Acricristal
+          </Typography>
+
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <IconButton
-              onClick={toggleDrawer(true)}
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
+              onClick={() => redirectToExternalPage("https://www.google.com")}
+              variant={"MainIcon"}
             >
-              <MenuIcon />
+              <Twitter />
             </IconButton>
-            <Drawer
-              anchor="Left"
-              open={state}
-              onClose={toggleDrawer(false)}
-              variant={"MainDraw"}
+
+            <IconButton
+              onClick={() => redirectToExternalPage("https://www.google.com")}
+              variant={"MainIcon"}
             >
-              {list()}
-            </Drawer>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Acricristal
-            </Typography>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+              <Facebook />
+            </IconButton>
+
+            <IconButton
+              onClick={() => redirectToExternalPage("https://www.google.com")}
+              variant={"MainIcon"}
             >
-              <IconButton
-                size="large"
-                edge="start"
-                onClick={() => redirectToExternalPage("https://www.google.com")}
-                variant={"MainIcon"}
-                aria-label="menu"
-              >
-                <Twitter />
-              </IconButton>
-
-              <IconButton
-                size="large"
-                edge="start"
-                onClick={() => redirectToExternalPage("https://www.google.com")}
-                aria-label="menu"
-                variant={"MainIcon"}
-              >
-                <Facebook />
-              </IconButton>
-
-              <IconButton
-                size="large"
-                edge="start"
-                onClick={() => redirectToExternalPage("https://www.google.com")}
-                aria-label="menu"
-                variant={"MainIcon"}
-              >
-                <WhatsApp />
-              </IconButton>
-            </motion.div>
-          </Toolbar>
-        </AppBar>
-      </Box>
-
+              <WhatsApp />
+            </IconButton>
+          </motion.div>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }
 
