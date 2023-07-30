@@ -28,14 +28,16 @@ import {
 
 
 
-
+//State of menu bar
 function MenuResponsive() {
   const [state, setState] = useState(false);
 
+  //Function to redirect to an external page
   const redirectToExternalPage = (url) => {
     window.location.href = url;
   };
 
+  //Function to modify the state of the menu drawer within parameters
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -47,6 +49,7 @@ function MenuResponsive() {
     setState(open);
   };
 
+  //The list that shows in the drawer menú section. I map the list and assign icon within the list index.
   const list = () => (
     <List variant={"MainList"}>
       {["Inicio", "Productos", "Servicios", "Galería", "Contacto"].map(
@@ -69,6 +72,8 @@ function MenuResponsive() {
   );
 
   return (
+
+      //Main surface of the menu bar. It has three icons redirecting to social media networks
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" variant={"MainNav"}>
         <Toolbar>

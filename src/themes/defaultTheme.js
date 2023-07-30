@@ -1,5 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
+//Main colors of the page, if you want to change colors, I recommend you using https://coolors.co/ or another palette generator.
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -13,6 +15,8 @@ const theme = createTheme({
     },
 
   },
+
+  //Individual cases of component customization.
   components:{
     MuiList: {
       variants: [
