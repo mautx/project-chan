@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Grid from '@mui/material/Unstable_Grid2';
 import {useMediaQuery} from "@mui/material";
 import theme from "../themes/defaultTheme";
-
+import { motion } from "framer-motion";
 
 //Hero section template, in desktop shows two columns of data, in mobile the right-most
 //column is hidden to improve responsiveness
@@ -11,6 +11,11 @@ function HeroTemplateChip({componentCrop1 , componentCrop2, color}) {
 
   return (
     <>
+        <motion.div
+            initial={{ opacity: 1, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+        >
       <Box
         sx={{
           width: "100vw",
@@ -30,6 +35,7 @@ function HeroTemplateChip({componentCrop1 , componentCrop2, color}) {
           )}
         </Grid>
       </Box>
+        </motion.div>
     </>
   );
 }
