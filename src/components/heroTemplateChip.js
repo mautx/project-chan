@@ -6,16 +6,11 @@ import { motion } from "framer-motion";
 
 //Hero section template, in desktop shows two columns of data, in mobile the right-most
 //column is hidden to improve responsiveness
-function HeroTemplateChip({componentCrop1 , componentCrop2, color}) {
+function HeroTemplateChip({ componentCrop1, componentCrop2, color }) {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <>
-        <motion.div
-            initial={{ opacity: 1, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-        >
       <Box
         sx={{
           width: "100vw",
@@ -23,19 +18,25 @@ function HeroTemplateChip({componentCrop1 , componentCrop2, color}) {
           backgroundColor: color,
         }}
       >
-        <Grid container spacing={2}>
-          <Grid xl={6} xs={12}>
-            {componentCrop1}
-          </Grid>
-
-          {isMobile ? null : (
+        {" "}
+        <motion.div
+          initial={{ opacity: 1, x: -25 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Grid container spacing={2}>
             <Grid xl={6} xs={12}>
-              {componentCrop2}
+              {componentCrop1}
             </Grid>
-          )}
-        </Grid>
-      </Box>
+
+            {isMobile ? null : (
+              <Grid xl={6} xs={12}>
+                {componentCrop2}
+              </Grid>
+            )}
+          </Grid>{" "}
         </motion.div>
+      </Box>
     </>
   );
 }

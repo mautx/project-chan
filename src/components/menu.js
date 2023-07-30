@@ -25,6 +25,8 @@ import {
   Twitter,
   WhatsApp,
 } from "@mui/icons-material";
+import {useMediaQuery} from "@mui/material";
+import theme from "../themes/defaultTheme";
 
 
 
@@ -48,6 +50,8 @@ function MenuResponsive() {
 
     setState(open);
   };
+  //Mobile checker
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   //The list that shows in the drawer menú section. I map the list and assign icon within the list index.
   const list = () => (
@@ -72,8 +76,7 @@ function MenuResponsive() {
   );
 
   return (
-
-      //Main surface of the menu bar. It has three icons redirecting to social media networks
+    //Main surface of the menu bar. It has three icons redirecting to social media networks
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" variant={"MainNav"}>
         <Toolbar>
@@ -88,10 +91,16 @@ function MenuResponsive() {
           >
             {list()}
           </Drawer>
+          {isMobile ? (
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Acricristal
+            </Typography>
+          ) : (
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Acricristal | Tienda de acrílico ubicada en Edo. Méx.
+            </Typography>
+          )}
 
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Acricristal
-          </Typography>
 
           <motion.div
             initial={{ opacity: 0, x: -20 }}
