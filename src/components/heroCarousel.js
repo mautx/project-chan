@@ -9,17 +9,17 @@ function HeroCarousel() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
-        // Función para cambiar el índice de la imagen cada 5 segundos
+        // Function to change state
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 5000); // Cambia la imagen cada 5000 milisegundos (5 segundos)
+        }, 5000); // Changes the state
 
-        // Limpia el intervalo cuando el componente se desmonta para evitar problemas de rendimiento
+        // Cleans the interval for performance
         return () => clearInterval(interval);
     }, []);
 
     useEffect(() => {
-        // Restablecer el índice de la imagen cuando el componente se desmonta
+        // Restablishes the index
         return () => setCurrentImageIndex(0);
     }, []);
 
