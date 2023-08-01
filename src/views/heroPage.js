@@ -7,6 +7,7 @@ import HeroCarousel from "../components/heroCarousel";
 import TemplateChip from "../components/templateChip";
 import GalleryChip from "../components/galleryChip";
 import TitlebarImageList from "../components/imageList";
+import GalleryDescription from "../components/galleryDescription";
 
 
 
@@ -19,7 +20,7 @@ function HeroPage() {
         <MenuResponsive></MenuResponsive>
         <HeroTemplateChip componentCrop1={<HeroCallToAction/>} color={theme.palette.primary.dark} componentCrop2={<HeroCarousel/>}></HeroTemplateChip>
           <TemplateChip color={theme.palette.primary.main}></TemplateChip>
-          <HeroTemplateChip componentCrop1={<TitlebarImageList/>} color={theme.palette.primary.dark}></HeroTemplateChip>
+          <HeroTemplateChip componentCrop1={<GalleryDescription/>} componentCrop2={<TitlebarImageList/>} color={theme.palette.primary.dark}></HeroTemplateChip>
       </ThemeProvider>
     </>
   );

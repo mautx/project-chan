@@ -56,7 +56,7 @@ function HeroCallToAction(){
         </span>{" "}
         para satisfacer tus necesidades con rapidez.
       </Typography>
-      <Grid container justifyContent="center">
+      <Grid container justifyContent="center" margin="4vh">
         <Button variant="contained" color="secondary">
           Comunícate con nosotros!
         </Button>

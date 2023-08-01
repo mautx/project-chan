@@ -12,7 +12,7 @@ function HeroCarousel() {
         // Function to change state
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 5000); // Changes the state
+        }, 3000); // Changes the state
 
         // Cleans the interval for performance
         return () => clearInterval(interval);
@@ -24,7 +24,7 @@ function HeroCarousel() {
     }, []);
 
   return (
-      <Fade in={true} timeout={1000}>
+      <Fade in={true} timeout={3000}>
           <Grid container justifyContent="center">
               {" "}
               <img
