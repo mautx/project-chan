@@ -7,7 +7,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 
 
 function HeroCallToAction(){
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   return (
     <Box margin={isMobile ? "3vw" : "5vw"}>
@@ -35,7 +35,7 @@ function HeroCallToAction(){
         >
           Naucalpan{" "}
         </span>
-        Estado de México, y realizamos entregas a Distrito Federal. Ofrecemos {" "}
+        Estado de México. Ofrecemos {" "}
         <span
           style={{ color: theme.palette.text.secondary, fontWeight: "bold" }}
         >

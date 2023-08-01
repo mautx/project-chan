@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-
+import Grid from '@mui/material/Unstable_Grid2';
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -13,7 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
-
+import theme from "../themes/defaultTheme";
 import * as React from "react";
 import {
   Category,
@@ -22,11 +22,9 @@ import {
   Facebook,
   Home,
   HomeRepairService,
-  Twitter,
   WhatsApp,
 } from "@mui/icons-material";
 import {useMediaQuery} from "@mui/material";
-import theme from "../themes/defaultTheme";
 
 
 
@@ -97,36 +95,72 @@ function MenuResponsive() {
             </Typography>
           ) : (
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Acricristal | Tienda de acrílico ubicada en Edo. Méx.
+              Acricristal
             </Typography>
           )}
 
+          {isMobile ? null : (
+            <Grid container>
+              <Box
+                display="flex"
+                flexDirection="row"
+                sx={{ marginRight: "2vw" }}
+              >
+                {["Productos", "Servicios", "Galería", "Contacto"].map(
+                  (text, index) => (
+                    <ListItem key={text} disablePadding>
+                      <ListItemButton width="2vw">
+                        <ListItemText primary={text} width="1vw" />
+                      </ListItemButton>
+                    </ListItem>
+                  )
+                )}{" "}
+              </Box>{" "}
+            </Grid>
+          )}
+          {/* New menu begins */}
 
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <IconButton
-              onClick={() => redirectToExternalPage("https://www.google.com")}
-              variant={"MainIcon"}
-            >
-              <Twitter />
-            </IconButton>
+            {isMobile ? (
+              <IconButton size="xl"
+                onClick={() =>
+                  redirectToExternalPage(
+                    "https://api.whatsapp.com/send?phone=525518370248"
+                  )
+                }
+                variant={"MainIcon"}
+              >
+                <WhatsApp />
+              </IconButton>
+            ) : (
+                <>              <IconButton
+                    onClick={() =>
+                        redirectToExternalPage(
+                            "https://www.facebook.com/LAMINASDOMOSAGH/"
+                        )
+                    }
+                    variant={"MainIcon"}
+                >
+                  <Facebook />
+                </IconButton>
 
-            <IconButton
-              onClick={() => redirectToExternalPage("https://www.google.com")}
-              variant={"MainIcon"}
-            >
-              <Facebook />
-            </IconButton>
+                  <IconButton
+                      onClick={() =>
+                          redirectToExternalPage(
+                              "https://api.whatsapp.com/send?phone=525518370248"
+                          )
+                      }
+                      variant={"MainIcon"}
+                  >
+                    <WhatsApp />
+                  </IconButton></>
 
-            <IconButton
-              onClick={() => redirectToExternalPage("https://www.google.com")}
-              variant={"MainIcon"}
-            >
-              <WhatsApp />
-            </IconButton>
+
+            )}
           </motion.div>
         </Toolbar>
       </AppBar>

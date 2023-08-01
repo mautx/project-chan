@@ -5,7 +5,7 @@ import {Fade} from "@mui/material";
 function HeroCarousel() {
 
 
-    const images = ["/heroImg1.png", "/heroImg2.png", "/heroImg3.png"];
+    const images = ["images/heroImg1.png", "images/heroImg2.png", "images/heroImg3.png"];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ function HeroCarousel() {
           <Grid container justifyContent="center">
               {" "}
               <img
-                  height="600vh"
+                  height="400vh"
                   src={images[currentImageIndex]}
                   srcSet={images[currentImageIndex]}
                   alt="hero_acrylic_image"
