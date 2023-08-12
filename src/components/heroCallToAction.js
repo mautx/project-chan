@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import theme from "../themes/defaultTheme";
 import {Button, useMediaQuery} from "@mui/material";
 import Grid from '@mui/material/Unstable_Grid2';
+import ListItemButton from "@mui/material/ListItemButton";
 
 
 
@@ -57,9 +58,11 @@ function HeroCallToAction(){
         para satisfacer tus necesidades con rapidez.
       </Typography>
       <Grid container justifyContent="center" margin="4vh">
-        <Button variant="contained" color="secondary">
+        <ListItemButton to="/contacto">
+        <Button variant="contained" color="secondary" >
           Comunícate con nosotros!
         </Button>
+        </ListItemButton>
       </Grid>
     </Box>
   );

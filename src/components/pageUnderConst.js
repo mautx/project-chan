@@ -8,28 +8,31 @@ import ListItemButton from "@mui/material/ListItemButton";
 
 
 
-function GalleryDescription(){
+function PageUnderConst(){
     const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
     return (
         <Box margin={isMobile ? "3vw" : "5vw"}>
 
             <Typography variant="h3" color={theme.palette.text.primary}>
-                Productos
+                Sección en construcción
             </Typography>
-            <Typography variant="h5" color={theme.palette.text.primary}>
-                Somos expertos en crear trabajos únicos y a medida para satisfacer todas tus necesidades. Desde impresionantes tombolas y elegantes capelos, hasta prácticos portainfo, portaretratos y portamenús, nuestro equipo altamente capacitado está listo para materializar tus ideas en impresionantes piezas de acrílico. Déjanos ser tu aliado creativo y llevar tus proyectos al siguiente nivel con la belleza y versatilidad del acrílico. ¡Explora nuestras opciones y déjanos sorprenderte con la excelencia de nuestro trabajo!
-            </Typography>
+            <img
+                height="400vh"
+                src="/images/monkey.png"
+                srcSet="/images/monkey.png"
+                alt="hero_acrylic_image"
+                loading="lazy"
+            />
             <Grid container justifyContent="center" margin="4vh">
                 <ListItemButton to="/contacto">
                     <Button variant="contained" color="secondary" >
                         Comunícate con nosotros!
                     </Button>
                 </ListItemButton>
-
             </Grid>
         </Box>
     );
 }
 
-export default GalleryDescription
+export default PageUnderConst

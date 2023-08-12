@@ -5,7 +5,7 @@ import {Fade} from "@mui/material";
 function HeroCarousel() {
 
 
-    const images = ["images/heroImg1.png", "images/heroImg2.png",];
+    const images = ["images/services1.jpeg", "images/services2.jpeg","images/services2.jpeg"];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
@@ -23,21 +23,21 @@ function HeroCarousel() {
         return () => setCurrentImageIndex(0);
     }, []);
 
-  return (
-      <Fade in={true} timeout={3000}>
-          <Grid container justifyContent="center">
-              {" "}
-              <img
-                  height="400vh"
-                  src={images[currentImageIndex]}
-                  srcSet={images[currentImageIndex]}
-                  alt="hero_acrylic_image"
-                  loading="lazy"
-              />
-          </Grid>
-      </Fade>
+    return (
+        <Fade in={true} timeout={3000}>
+            <Grid container justifyContent="center">
+                {" "}
+                <img
+                    height="500vh"
+                    src={images[currentImageIndex]}
+                    srcSet={images[currentImageIndex]}
+                    alt="hero_acrylic_image"
+                    loading="lazy"
+                />
+            </Grid>
+        </Fade>
 
-  );
+    );
 }
 
 export default HeroCarousel

@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 //Hero section template, in desktop shows two columns of data, in mobile the right-most
 //column is hidden to improve responsiveness
 function HeroTemplateChip({ componentCrop1, componentCrop2, color }) {
-  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <>

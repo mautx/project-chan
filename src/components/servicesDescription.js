@@ -8,17 +8,20 @@ import ListItemButton from "@mui/material/ListItemButton";
 
 
 
-function GalleryDescription(){
+function ServicesDescription(){
     const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
     return (
         <Box margin={isMobile ? "3vw" : "5vw"}>
 
             <Typography variant="h3" color={theme.palette.text.primary}>
-                Productos
+                Servicios
             </Typography>
             <Typography variant="h5" color={theme.palette.text.primary}>
-                Somos expertos en crear trabajos únicos y a medida para satisfacer todas tus necesidades. Desde impresionantes tombolas y elegantes capelos, hasta prácticos portainfo, portaretratos y portamenús, nuestro equipo altamente capacitado está listo para materializar tus ideas en impresionantes piezas de acrílico. Déjanos ser tu aliado creativo y llevar tus proyectos al siguiente nivel con la belleza y versatilidad del acrílico. ¡Explora nuestras opciones y déjanos sorprenderte con la excelencia de nuestro trabajo!
+                Nuestros servicios abarcan desde el pegado de acrílico en distintas formas y tamaños, hasta la creación de diseños personalizados y a medida para proyectos únicos. Si tienes una idea en mente, nuestro equipo de expertos trabajará contigo para convertirla en realidad.
+
+                Además, ofrecemos el servicio de doblado de acrílico, lo que nos permite crear piezas con formas curvas y sofisticadas. Si necesitas hojas de acrílico de alta calidad, también las tenemos disponibles en nuestra tienda, en una variedad de tamaños y grosores.
+
             </Typography>
             <Grid container justifyContent="center" margin="4vh">
                 <ListItemButton to="/contacto">
@@ -26,10 +29,9 @@ function GalleryDescription(){
                         Comunícate con nosotros!
                     </Button>
                 </ListItemButton>
-
             </Grid>
         </Box>
     );
 }
 
-export default GalleryDescription
+export default ServicesDescription

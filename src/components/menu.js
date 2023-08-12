@@ -6,7 +6,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { useState } from "react";
+import {useState} from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -24,12 +24,15 @@ import {
   HomeRepairService,
   WhatsApp,
 } from "@mui/icons-material";
-import {useMediaQuery} from "@mui/material";
+import {Button, Link, useMediaQuery} from "@mui/material";
+
 
 
 
 //State of menu bar
-function MenuResponsive() {
+function MenuResponsive({heroTemplateRef}) {
+
+
   const [state, setState] = useState(false);
 
   //Function to redirect to an external page
@@ -54,22 +57,28 @@ function MenuResponsive() {
   //The list that shows in the drawer menú section. I map the list and assign icon within the list index.
   const list = () => (
     <List variant={"MainList"}>
-      {["Inicio", "Productos", "Servicios", "Galería", "Contacto"].map(
-        (text, index) => (
+      {["Inicio", "Productos", "Servicios", "Galeria", "Contacto"].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon variant={"MainIcon"}>
-                {index === 0 ? <Home color={"secondary"} /> : undefined}
-                {index === 1 ? <Category color={"secondary"} /> : undefined}
-                {index === 2 ? <HomeRepairService color={"secondary"} /> : undefined}
-                {index === 3 ? <Collections color={"secondary"} /> : undefined}
-                {index === 4 ? <ContactPhone color={"secondary"} /> : undefined}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
+            {index === 0 ? (
+                <ListItemButton component={Link} to="/">
+                  <ListItemIcon variant={"MainIcon"}>
+                    <Home color={"secondary"} />
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+            ) : (
+                <ListItemButton component={Link} to={`/${text.toLowerCase()}`}>
+                  <ListItemIcon variant={"MainIcon"}>
+                    {index === 1 ? <Category color={"secondary"} /> : undefined}
+                    {index === 2 ? <HomeRepairService color={"secondary"} /> : undefined}
+                    {index === 3 ? <Collections color={"secondary"} /> : undefined}
+                    {index === 4 ? <ContactPhone color={"secondary"} /> : undefined}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+            )}
           </ListItem>
-        )
-      )}
+      ))}
     </List>
   );
 
@@ -78,9 +87,12 @@ function MenuResponsive() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" variant={"MainNav"}>
         <Toolbar>
-          <IconButton onClick={toggleDrawer(true)} variant={"MainIcon"}>
-            <MenuIcon />
-          </IconButton>
+          {isMobile ? (
+            <IconButton onClick={toggleDrawer(true)} variant={"MainIcon"}>
+              <MenuIcon />
+            </IconButton>
+          ) : null}
+
           <Drawer
             anchor="Left"
             open={state}
@@ -94,9 +106,17 @@ function MenuResponsive() {
               Acricristal
             </Typography>
           ) : (
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Acricristal
-            </Typography>
+            <ListItemButton to="/">
+              {" "}
+              <Button
+                to="/"
+                variant="h6"
+                component="div"
+                margin="2vh"
+              >
+                Acricristal
+              </Button>
+            </ListItemButton>
           )}
 
           {isMobile ? null : (
@@ -106,11 +126,11 @@ function MenuResponsive() {
                 flexDirection="row"
                 sx={{ marginRight: "2vw" }}
               >
-                {["Productos", "Servicios", "Galería", "Contacto"].map(
+                {["Productos", "Servicios", "Galeria", "Contacto"].map(
                   (text, index) => (
                     <ListItem key={text} disablePadding>
-                      <ListItemButton width="2vw">
-                        <ListItemText primary={text} width="1vw" />
+                      <ListItemButton width="2vw" to={`/${text.toLowerCase()}`}>
+                        <ListItemText primary={text} />
                       </ListItemButton>
                     </ListItem>
                   )
@@ -126,7 +146,8 @@ function MenuResponsive() {
             transition={{ duration: 0.5 }}
           >
             {isMobile ? (
-              <IconButton size="xl"
+              <IconButton
+                size="xl"
                 onClick={() =>
                   redirectToExternalPage(
                     "https://api.whatsapp.com/send?phone=525518370248"
@@ -137,29 +158,29 @@ function MenuResponsive() {
                 <WhatsApp />
               </IconButton>
             ) : (
-                <>              <IconButton
-                    onClick={() =>
-                        redirectToExternalPage(
-                            "https://www.facebook.com/LAMINASDOMOSAGH/"
-                        )
-                    }
-                    variant={"MainIcon"}
+              <>
+                {" "}
+                <IconButton
+                  onClick={() =>
+                    redirectToExternalPage(
+                      "https://www.facebook.com/LAMINASDOMOSAGH/"
+                    )
+                  }
+                  variant={"MainIcon"}
                 >
                   <Facebook />
                 </IconButton>
-
-                  <IconButton
-                      onClick={() =>
-                          redirectToExternalPage(
-                              "https://api.whatsapp.com/send?phone=525518370248"
-                          )
-                      }
-                      variant={"MainIcon"}
-                  >
-                    <WhatsApp />
-                  </IconButton></>
-
-
+                <IconButton
+                  onClick={() =>
+                    redirectToExternalPage(
+                      "https://api.whatsapp.com/send?phone=525518370248"
+                    )
+                  }
+                  variant={"MainIcon"}
+                >
+                  <WhatsApp />
+                </IconButton>
+              </>
             )}
           </motion.div>
         </Toolbar>

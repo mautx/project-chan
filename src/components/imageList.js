@@ -269,7 +269,7 @@ const itemData = [
 
 export default function TitlebarImageList() {
     const [selectedImage, setSelectedImage] = useState(null);
-    const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const handleImageClick = (image) => {
         setSelectedImage(image);
@@ -281,7 +281,11 @@ export default function TitlebarImageList() {
 
     return (
         <>
-            <ImageList sx={{ width: '40vw', height: '60vh' }}>
+            <ImageList       sx={{
+                width: isMobile ? '100vw' : '40vw',
+                height: isMobile ? '90vh' : '60vh',
+                margin: isMobile ? '0vh' : '5vh',
+            }} >
                 {itemData.map((item) => (
                     <ImageListItem key={item.img} onClick={() => handleImageClick(item)}>
                         <ImageListItem key={item.img}>
